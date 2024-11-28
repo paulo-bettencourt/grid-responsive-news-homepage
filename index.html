@@ -8,16 +8,10 @@
     content="width=device-width, initial-scale=1.0"
   />
   <link
-    rel="icon"
-    type="image/png"
-    sizes="32x32"
-    href="./assets/images/favicon-32x32.png"
-  />
-  <link
     rel="stylesheet"
     href="style.css"
   >
-  <title>Frontend Mentor | News homepage</title>
+  <title>News homepage</title>
 </head>
 
 <body>
@@ -27,13 +21,21 @@
         src="assets/images/logo.svg"
         alt=""
       /></div>
-    <ul>
+    <ul id="menu-ul-navbar">
       <li>Home</li>
       <li>New</li>
       <li>Popular</li>
       <li>Trending</li>
       <li>Categories</li>
     </ul>
+    <div
+      class="hamburguer-menu"
+      id="hamburguer"
+    >
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 
   <div class="grid-container">
@@ -113,6 +115,17 @@
       </div>
     </div>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.getElementById('hamburguer');
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        document.getElementById('menu-ul-navbar').classList.toggle('active');
+      });
+    });
+  </script>
+
 </body>
+
 
 </html>

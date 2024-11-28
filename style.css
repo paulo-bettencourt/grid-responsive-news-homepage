@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 body {
   width: 75%;
@@ -7,18 +6,67 @@ body {
   font-family: "Barlow Semi Condensed", sans-serif;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+}
+
+ul {
+  text-align: center;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+ul.active {
+  max-height: 500px; 
+}
+
+ul li {
+  list-style: none;
+  margin-top: 2rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.navbar .hamburguer-menu div {
+  width: 3rem;
+  height: 5px;
+  margin: 0.3rem;
+  background-color: #000000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hamburguer-menu.active div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburguer-menu.active div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburguer-menu.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -10px);
+}
+.grid-container {
+  display: block;
+}
+
 .grid-item-0 {
   background-image: url(assets/images/image-web-3-desktop.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  height: 200px;
+  margin-top: 2rem;
 }
 
-
 .grid-item-1 {
-  grid-row: 2 span;
   background-color: hsl(240, 100%, 5%);
-  padding: 0 1rem 1rem 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem 1rem 1rem;
   line-height: 1;
 }
 
@@ -26,9 +74,9 @@ body {
   color: hsl(35, 77%, 62%);
 }
 
-.grid-item-1 p, .grid-item-1 h2 {
+.grid-item-1 p,
+.grid-item-1 h2 {
   color: hsl(36, 100%, 99%);
-
 }
 
 .grid-item-2 {
@@ -51,6 +99,11 @@ body {
   background-color: hsl(5, 85%, 63%);
   padding: 3%;
   width: 100%;
+  margin-bottom: 3rem;
+}
+
+.news-container {
+  margin-bottom: 2rem;
 }
 
 .grid-item-4 .news-container {
@@ -68,49 +121,57 @@ body {
 }
 
 .news-text {
-  display: flex; 
-  flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
 }
 
-.news-text h2,
-.news-text h3,
-.news-text p {
-}
-
-ul li {
-
+.news-text h2, .news-text h3, .news-text p {
+  margin: 0;
 }
 
 @media (min-width: 1440px) {
-  
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem 0;
-}
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+  }
 
-ul li {
-  display: inline;
-  padding: 1.5rem 0 1.5rem 1.5rem;
-}
+  .navbar .hamburguer-menu {
+    display: none;
+  }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 400px;
-  grid-template-rows: 250px 150px 10rem;
-  grid-gap: 2rem;
-}
+  ul {
+    max-height: 100%; 
+  }
 
-.grid-container .grid-item .news-container {
-  display: flex;
-}
+  ul li {
+    display: inline;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+  }
 
-.grid-item-0 {
-  grid-column: 2 span;
-}
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 400px;
+    grid-template-rows: 250px 150px 10rem;
+    grid-gap: 2rem;
+  }
 
+  .grid-container .grid-item .news-container {
+    display: flex;
+  }
 
+  .grid-item-0 {
+    grid-column: 2 span;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    height: 100%;
+  }
+
+  .grid-item-1 {
+    margin-top: 0;
+    grid-row: 2 span;
+  }
 
 }
